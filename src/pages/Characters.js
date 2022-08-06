@@ -1,17 +1,21 @@
 import axios from "axios";
 // import { response } from "express";
-import { useEffect, usestate } from "react";
+import { useEffect, useState } from "react";
 
 const Characters = () => {
-  const { data, setData } = usestate({});
-  const { isLoading, setIsLoading } = usestate(true);
+  //creation d un state concernant les mise a jour des datas
+  const { data, setData } = useState();
+  //creation d 'un state de chargement de la page
+  const { isLoading, setIsLoading } = useState(true);
+  //creation d'un useEffect pour lancer le script lorsque la requette est chargée
 
   useEffect(() => {
     const fetchCharacters = async () => {
       const response = await axios.get(
-        `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+        `https://my-marvel-back-project.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
       );
       setData(response.data);
+      console.log(response.data);
       setIsLoading(false);
     };
     fetchCharacters();
@@ -20,14 +24,22 @@ const Characters = () => {
     <div>Loading ....🤷🏽‍♂️ please wait</div>
   ) : (
     <section>
-      <h2>{data.name}</h2>
-      <img
-        src={data.thumbmail.path + "." + data.thumbmail.extension}
-        alt={data.name}
-        style={{ height: "200px" }}
-      />
-      {data.map((personnage, index) => {
-        return <p key={index}>{personnage.title}</p>;
+      {/* //extraction des données de results */}
+      {data.results.map((personnage, index) => {
+        console.log(data.results);
+        return (
+          <div>
+            {/* nom des personnages */}
+            <h2 key={index}>{personnage.title}</h2>
+            <img
+              src={
+                personnage.thumbnail.path + "." + personnage.thumbnail.extension
+              }
+              alt={personnage.name}
+              style={{ height: "200px" }}
+            />
+          </div>
+        );
       })}
     </section>
   );

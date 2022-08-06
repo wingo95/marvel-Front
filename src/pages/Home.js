@@ -1,4 +1,4 @@
 const Home = () => {
-  return <p>Comics !!!</p>;
+  return <p>home sweet home!!!</p>;
 };
 export default Home;
