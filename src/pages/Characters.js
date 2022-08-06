@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Characters = () => {
   //creation d un state concernant les mise a jour des datas
-  const { data, setData } = useState();
+  const { data, setData } = useState([]);
   //creation d 'un state de chargement de la page
   const { isLoading, setIsLoading } = useState(true);
   //creation d'un useEffect pour lancer le script lorsque la requette est chargée
@@ -12,14 +12,17 @@ const Characters = () => {
   useEffect(() => {
     const fetchCharacters = async () => {
       const response = await axios.get(
-        `https://my-marvel-back-project.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+        `https://my-marvel-back-project.herokuapp.com/characters`
       );
-      setData(response.data);
+
+      setData(response.data.results);
       console.log(response.data);
       setIsLoading(false);
     };
     fetchCharacters();
-  });
+  }, [isLoading, data]);
+  if (isLoading === false) console.log(data);
+
   return isLoading === true ? (
     <div>Loading ....🤷🏽‍♂️ please wait</div>
   ) : (
