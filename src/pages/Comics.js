@@ -40,7 +40,12 @@ const Comics = () => {
                 <h2 key={index}>{comic.title}</h2>
                 <img
                   className="image"
-                  src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                  src={
+                    comic.thumbnail.path + "." + comic.thumbnail.extension ===
+                    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+                      ? "./logo_dc.jpeg"
+                      : comic.thumbnail.path + "." + comic.thumbnail.extension
+                  }
                   alt={comic.name}
                 />
               </div>

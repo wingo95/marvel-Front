@@ -2,8 +2,11 @@ import axios from "axios";
 import Loadingscreen from "../components/loadingScreen";
 // import { response } from "express";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Characters = () => {
+  const navigate = useNavigate();
+  const params = useParams();
   //creation d un state concernant les mise a jour des datas
   const [data, setData] = useState([]);
   //creation d 'un state de chargement de la page
@@ -33,6 +36,7 @@ const Characters = () => {
         <div className="carroussel ">
           {/* //extraction des données de results */}
           {data.map((personnage, index) => {
+            console.log();
             return (
               <div className="picture">
                 {/* nom des personnages */}
@@ -41,8 +45,13 @@ const Characters = () => {
                   className="image"
                   src={
                     personnage.thumbnail.path +
-                    "." +
-                    personnage.thumbnail.extension
+                      "." +
+                      personnage.thumbnail.extension ===
+                    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+                      ? "./logo-spid.png"
+                      : personnage.thumbnail.path +
+                        "." +
+                        personnage.thumbnail.extension
                   }
                   alt={personnage.name}
                 />

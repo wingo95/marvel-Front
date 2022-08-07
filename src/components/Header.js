@@ -4,13 +4,16 @@ const Header = () => {
   return (
     <header>
       <div>
-        <div className="header">
-          <img src="./marvel.jpeg" alt="" />
+        <Link to="/Home">
+          <div className="header">
+            <img className="display" src="./marvel.jpeg" alt="" />
+          </div>
+        </Link>
+        <div className="display_nav">
+          <Link to="/Characters">Characters </Link>
+          <Link to="home">Home sweet home </Link>
+          <Link to="/Comics">Comics </Link>
         </div>
-
-        <Link to="home">HOme sweet home</Link>
-        <Link to="/Comics">Comics!!!</Link>
-        <Link to="/Characters">Characters!!</Link>
       </div>
     </header>
   );
