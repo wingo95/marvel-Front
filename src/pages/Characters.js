@@ -32,7 +32,7 @@ const Characters = () => {
         return (
           <div>
             {/* nom des personnages */}
-            <h2 key={index}>{personnage.comics}</h2>
+            <h2 key={index}>{personnage.name}</h2>
             <img
               src={
                 personnage.thumbnail.path + "." + personnage.thumbnail.extension
