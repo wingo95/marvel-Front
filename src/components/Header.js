@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <div className="header">
-        <img src="./marvel.jpeg" alt="" />
+      <div>
+        <div className="header">
+          <img src="./marvel.jpeg" alt="" />
+        </div>
 
         <Link to="home">HOme sweet home</Link>
         <Link to="/Comics">Comics!!!</Link>

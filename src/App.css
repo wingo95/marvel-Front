@@ -1,3 +1,7 @@
+.app {
+  width: 100vw;
+}
+
 .header img {
   width: 400px;
   display: flex;
@@ -16,9 +20,52 @@ header a {
   color: wheat;
   margin: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 body {
   background-color: black;
   color: red;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  height: 24rem;
+  border: blue solid 2px;
+}
+.image {
+  border: red solid 2px;
+  border-radius: 10px;
+  width: 18rem;
+  height: 20rem;
+}
+.image hover {
+  cursor: pointer;
+}
+
+.carroussel {
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px;
+}
+.carroussel::-webkit-scrollbar {
+  display: none;
+}
+.loading {
+  color: red;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem;
 }

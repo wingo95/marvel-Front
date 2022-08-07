@@ -10,7 +10,7 @@ import Characters from "./pages/Characters";
 
 function App() {
   return (
-    <section>
+    <section className="app">
       <Router>
         <Header />
         <Routes>

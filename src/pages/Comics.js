@@ -1,4 +1,5 @@
 import axios from "axios";
+import Loadingscreen from "../components/loadingScreen";
 // import { response } from "express";
 import { useEffect, useState } from "react";
 
@@ -24,26 +25,29 @@ const Comics = () => {
   console.log(data);
 
   return isLoading === true ? (
-    <div>Loading ....🤷🏽‍♂️ please wait</div>
+    <div className="loading">
+      <Loadingscreen />
+    </div>
   ) : (
     <section>
-      {/* //extraction des données de results */}
-      {data.map((comic, index) => {
-        console.log(data.results);
-        return (
-          <div>
-            <div>
-              {/* nom des personnages */}
-              <h2 key={index}>{comic.name}</h2>
-              <img
-                src={comic.thumbnail.path + "." + comic.thumbnail.extension}
-                alt={comic.name}
-                style={{ height: "200px" }}
-              />
-            </div>
-          </div>
-        );
-      })}
+      <div>
+        <div className="carroussel ">
+          {/* //extraction des données de results */}
+          {data.map((comic, index) => {
+            return (
+              <div className="picture">
+                {/* nom des comics */}
+                <h2 key={index}>{comic.title}</h2>
+                <img
+                  className="image"
+                  src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                  alt={comic.name}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };
