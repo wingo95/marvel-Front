@@ -10,7 +10,7 @@ const Comics = () => {
   //creation d'un useEffect pour lancer le script lorsque la requette est chargée
 
   useEffect(() => {
-    const fetchCharacters = async () => {
+    const fetchComics = async () => {
       const response = await axios.get(
         "https://my-marvel-back-project.herokuapp.com/comics"
       );
@@ -19,7 +19,7 @@ const Comics = () => {
       console.log(data);
       setIsLoading(false);
     };
-    fetchCharacters();
+    fetchComics();
   }, []);
   console.log(data);
 
@@ -28,20 +28,16 @@ const Comics = () => {
   ) : (
     <section>
       {/* //extraction des données de results */}
-      {data.map((personnage, index) => {
+      {data.map((comic, index) => {
         console.log(data.results);
         return (
           <div>
             <div>
               {/* nom des personnages */}
-              <h2 key={index}>{personnage.name}</h2>
+              <h2 key={index}>{comic.name}</h2>
               <img
-                src={
-                  personnage.thumbnail.path +
-                  "." +
-                  personnage.thumbnail.extension
-                }
-                alt={personnage.name}
+                src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                alt={comic.name}
                 style={{ height: "200px" }}
               />
             </div>
