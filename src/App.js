@@ -5,22 +5,24 @@ import "./App.css";
 import Comics from "./pages/Comics";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import Characters from "./pages/Characters";
 
 function App() {
   return (
     <section className="app">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/Comics" element={<Comics />} />
-          <Route path="/Characters" element={<Characters />} />
-        </Routes>
-      </Router>
-      <footer />
+      <div>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/Comics" element={<Comics />} />
+            <Route path="/Characters" element={<Characters />} />
+          </Routes>
+        </Router>
+      </div>
+      <Footer className="footer" />
     </section>
   );
 }

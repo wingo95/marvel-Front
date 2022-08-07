@@ -1,12 +1,9 @@
 import axios from "axios";
-import Loadingscreen from "../components/loadingScreen";
+import Loadingscreen from "../components/Loadingscreen";
 // import { response } from "express";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 
 const Characters = () => {
-  const navigate = useNavigate();
-  const params = useParams();
   //creation d un state concernant les mise a jour des datas
   const [data, setData] = useState([]);
   //creation d 'un state de chargement de la page

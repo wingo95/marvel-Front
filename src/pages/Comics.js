@@ -1,5 +1,5 @@
 import axios from "axios";
-import Loadingscreen from "../components/loadingScreen";
+import Loadingscreen from "../components/Loadingscreen";
 // import { response } from "express";
 import { useEffect, useState } from "react";
 
@@ -21,7 +21,7 @@ const Comics = () => {
       setIsLoading(false);
     };
     fetchComics();
-  }, []);
+  }, [data]);
   console.log(data);
 
   return isLoading === true ? (
